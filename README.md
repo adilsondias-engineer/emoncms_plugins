@@ -1,8 +1,6 @@
 # EmonCMS Custom Plugins
 
-Custom EmonCMS application plugins for monitoring environmental and energy systems in real-time. These plugins provide sophisticated dashboards for displaying data collected by DataBridge, transforming raw sensor data into actionable insights.
-
-> **TML** stands for **Tiny Memories Laser**, a registered business (API-led Pty Ltd, ABN) that operated from 2018-2024. These EmonCMS plugins represent the visualization layer of the TML IoT monitoring ecosystem, providing beautiful real-time dashboards for home energy and environmental monitoring.
+Custom EmonCMS application plugins for monitoring environmental and energy systems in real-time. These plugins provide dashboards for displaying data collected by DataBridge, transforming raw sensor data into actionable insights.
 
 ---
 
@@ -12,16 +10,16 @@ Custom EmonCMS application plugins for monitoring environmental and energy syste
 
 ## Project Information
 
-- **Author**: Adilson Dias (API-Led Pty Ltd → Tiny Memories Laser (TML))
+- **Author**: Adilson Dias
 - **Type**: EmonCMS Application Plugins
 - **Language**: PHP (EmonCMS native), JavaScript/HTML5
 - **Compatibility**: EmonCMS v9+ (tested on v10+)
 - **License**: MIT License (or CC0 as specified in original)
-- **Status**: Production-ready (2+ years operational)
+- **Status**: Ran reliably for 2+ years in a home deployment
 
 ## Overview
 
-This repository contains professional-grade EmonCMS plugins that display real-time data collected by DataBridge. The plugins provide sophisticated visualizations, historical analysis, and energy flow diagrams for residential solar installations and environmental monitoring systems.
+This repository contains EmonCMS plugins that display real-time data collected by DataBridge. The plugins provide visualizations, historical analysis, and energy flow diagrams for residential solar installations and environmental monitoring systems.
 
 ### Integration Architecture
 
@@ -57,7 +55,7 @@ This repository contains professional-grade EmonCMS plugins that display real-ti
 
 ### 1. My Fish Tank (`myfishtank`)
 
-Professional aquarium environment monitoring dashboard with real-time water quality tracking and alerting capabilities.
+Aquarium environment monitoring dashboard with real-time water quality tracking and alerting capabilities.
 
 #### Features
 
@@ -128,7 +126,7 @@ Display Settings:
 
 ### 2. My Solar PV Battery (`mysolarpvbattery`)
 
-Advanced solar generation, consumption, and battery monitoring system with real-time power graphs and sophisticated historical analysis.
+Solar generation, consumption, and battery monitoring system with real-time power graphs and historical analysis.
 
 #### Features
 
@@ -159,28 +157,27 @@ Advanced solar generation, consumption, and battery monitoring system with real-
 - Monthly aggregation and comparison
 
 **Energy Flow Visualization**
+
 ```
-                 ☀️ Solar
-                  ↓
-        ┌─────────┼─────────┐
-        ↓         ↓         ↓
-     🏠 House  🔋 Battery  📊 Grid Export
-        ↓         ↓
-      [Consumption] [Storage]
+            ☀️ Solar
+             ↓
+   ┌─────────┼─────────┐
+   ↓         ↓         ↓
+🏠 House  🔋 Battery  📊 Grid Export
+   ↓         ↓
+ [Consumption] [Storage]
 ```
 
 #### Power Flow Tracking
 
-The plugin calculates and displays:
-
-| Flow Path | Description | Status |
-|-----------|-------------|--------|
-| Solar → House | Direct self-consumption | Green |
-| Solar → Battery | Charging storage | Blue |
-| Solar → Grid | Export excess | Yellow |
-| Battery → House | Discharge during night | Purple |
-| Grid → House | Import when needed | Red |
-| Grid → Battery | Charging from grid | Orange |
+| Flow Path       | Description             | Status |
+| ---------------- | ------------------------- | ------ |
+| Solar → House   | Direct self-consumption | Green  |
+| Solar → Battery | Charging storage        | Blue   |
+| Solar → Grid    | Export excess           | Yellow |
+| Battery → House | Discharge during night  | Purple |
+| Grid → House    | Import when needed      | Red    |
+| Grid → Battery  | Charging from grid      | Orange |
 
 #### Feed Configuration
 
@@ -220,6 +217,7 @@ battery_discharge_kwh│ kWh  │ Energy discharged
 #### Configuration Options
 
 **Display Settings**
+
 ```
 Power Display Unit:
   ☐ Show in Watts (W)
@@ -240,7 +238,7 @@ Chart Settings:
 
 #### Feed Auto-Configuration
 
-The plugin includes intelligent feed matching:
+The plugin includes feed matching:
 
 1. Open plugin configuration
 2. Click "Auto-Configure Feeds"
@@ -251,6 +249,7 @@ The plugin includes intelligent feed matching:
 #### Advanced Features
 
 **Battery Time Remaining Calculation**
+
 ```
 Time Remaining = (Current SOC - Min SOC) × Battery Capacity / Discharge Power
 ```
@@ -258,11 +257,13 @@ Time Remaining = (Current SOC - Min SOC) × Battery Capacity / Discharge Power
 Example: 85% SOC - 20% min SOC = 65% usable = 7.5kWh ÷ 3kW discharge = 2.5 hours
 
 **Daily Self-Consumption Analysis**
+
 ```
 Self-Consumption % = Direct Solar Use / Total Solar Generation × 100
 ```
 
 **ROI & Payback Analysis** (when historical data available)
+
 ```
 Daily Savings = (Grid Import Cost - Grid Export Revenue)
 Monthly ROI = Daily Savings × 30
@@ -275,14 +276,14 @@ Annual Payback = System Cost / Annual Savings
 
 ### EmonCMS Installation
 
-| Requirement | Specification |
-|-------------|---------------|
-| **EmonCMS Version** | 9.0+ (tested on 10+) |
-| **PHP Version** | 7.4+ |
-| **Database** | MySQL 5.7+ or MariaDB |
-| **Feed Engine** | PHPTimeSeries or MySQL |
-| **Graph Module** | EmonCMS Graph module (for charting) |
-| **Storage** | 100MB minimum |
+| Requirement         | Specification                       |
+| --------------------- | -------------------------------------- |
+| **EmonCMS Version** | 9.0+ (tested on 10+)                |
+| **PHP Version**     | 7.4+                                |
+| **Database**        | MySQL 5.7+ or MariaDB               |
+| **Feed Engine**     | PHPTimeSeries or MySQL              |
+| **Graph Module**    | EmonCMS Graph module (for charting) |
+| **Storage**         | 100MB minimum                       |
 
 ### Feed Requirements
 
@@ -293,13 +294,13 @@ Annual Payback = System Cost / Annual Savings
 
 ### Browser Compatibility
 
-| Browser | Version | Support | Notes |
-|---------|---------|---------|-------|
-| Chrome/Edge | 90+ | ✅ Full | Native support for EmonCMS Graph module |
-| Firefox | 88+ | ✅ Full | Full compatibility with Graph rendering |
-| Safari | 14+ | ✅ Full | All features supported |
-| Mobile Safari (iOS) | 14+ | ✅ Responsive | Responsive design for tablets/phones |
-| Chrome Mobile | 90+ | ✅ Responsive | Graph zoom may require pinch-to-zoom |
+| Browser             | Version | Support      | Notes                                   |
+| --------------------- | --------- | -------------- | ------------------------------------------ |
+| Chrome/Edge         | 90+     | ✅ Full       | Native support for EmonCMS Graph module |
+| Firefox             | 88+     | ✅ Full       | Full compatibility with Graph rendering |
+| Safari              | 14+     | ✅ Full       | All features supported                  |
+| Mobile Safari (iOS) | 14+     | ✅ Responsive | Responsive design for tablets/phones    |
+| Chrome Mobile       | 90+     | ✅ Responsive | Graph zoom may require pinch-to-zoom    |
 
 ---
 
@@ -307,9 +308,7 @@ Annual Payback = System Cost / Annual Savings
 
 ### Step 1: Locate EmonCMS Directory
 
-Find your EmonCMS installation:
-
-```bash
+```
 # Typical location on Linux
 /var/www/emoncms/
 
@@ -321,408 +320,101 @@ sudo find / -name "emoncms" -type d 2>/dev/null
 
 **Option A: Using Git Clone**
 
-```bash
+```
 cd /var/www/emoncms/Modules/app/
-
-git clone https://github.com/adilsondias-engineer/emoncms-custom-plugins.git temp
-
+git clone https://github.com/adilsondias-engineer/emoncms_plugins.git temp
 mv temp/myfishtank ./
 mv temp/mysolarpvbattery ./
-
 rm -rf temp
 ```
 
 **Option B: Manual Copy**
 
-```bash
-# Copy plugin folders to EmonCMS app directory
+```
 sudo cp -r myfishtank /var/www/emoncms/Modules/app/
 sudo cp -r mysolarpvbattery /var/www/emoncms/Modules/app/
-
-# Adjust permissions
 sudo chown -R www-data:www-data /var/www/emoncms/Modules/app/myfishtank
 sudo chown -R www-data:www-data /var/www/emoncms/Modules/app/mysolarpvbattery
 ```
 
 ### Step 3: Verify EmonCMS Graph Module
 
-The solar plugin requires the EmonCMS Graph module for charting:
-
-```bash
-# Verify Graph module is installed
+```
 ls -la /var/www/emoncms/Modules/graph/
 
 # If not installed, clone it
 cd /var/www/emoncms/Modules/
 git clone https://github.com/emoncms/graph.git
-
-# Adjust permissions
 sudo chown -R www-data:www-data graph/
 ```
 
-Verify in EmonCMS:
-1. Go to **Setup** → **Modules**
-2. Confirm "graph" appears in module list
-3. Status should show "OK" or "Installed"
+Verify in EmonCMS: **Setup** → **Modules** → confirm "graph" appears with status "OK"/"Installed"
 
-```bash
-# Clear EmonCMS cache
+```
 sudo rm -rf /var/www/emoncms/Modules/cache/*
-
-# Restart web server
 sudo systemctl restart apache2
-# or for nginx
-sudo systemctl restart nginx
+# or: sudo systemctl restart nginx
 ```
 
-### Step 5: Verify Installation
+### Step 4: Verify Installation
 
 1. Log into EmonCMS dashboard
 2. Go to **Apps** menu
-3. You should see:
-   - "My Fish Tank"
-   - "My Solar PV Battery"
-
-If not visible, check:
-```bash
-# Verify files exist
-ls -la /var/www/emoncms/Modules/app/myfishtank/
-ls -la /var/www/emoncms/Modules/app/mysolarpvbattery/
-
-# Check permissions
-sudo ls -la /var/www/emoncms/Modules/app/ | grep my
-```
-
----
+3. You should see "My Fish Tank" and "My Solar PV Battery"
 
 ## Configuration
 
 ### Creating a Dashboard: My Fish Tank
 
-#### Step 1: Add Plugin to Dashboard
-
-1. Go to EmonCMS **Dashboard** page
-2. Click **Edit Dashboard** (pencil icon)
-3. Click **Add Widget**
-4. Search for "My Fish Tank"
-5. Click to add
-
-#### Step 2: Configure Feeds
-
-1. Click the **configuration icon** (wrench/gear) on the widget
-2. Select your configured feeds:
-   - Current Temperature → Select "currentTemp" feed
-   - High Temperature → Select "highTemp" feed
-   - Low Temperature → Select "lowTemp" feed
-   - TDS → Select "tds" feed
-   - pH → Select "ph" feed
-   - EC → Select "ec" feed
-   - Salinity → Select "salinity" feed
-   - S.G. → Select "sg" feed
+1. Go to EmonCMS **Dashboard** → **Edit Dashboard** → **Add Widget** → search "My Fish Tank"
+2. Click the configuration icon and select your configured feeds
 3. Click **Save**
-
-#### Step 3: Set Temperature Thresholds
-
-In EmonCMS, create input feeds for thresholds (if using dynamic thresholds):
-
-```
-Input Process Chain:
-├─ Read value from device
-├─ Log to feed: highTemp
-├─ (or) Fixed value: 30°C for high temp
-└─ Fixed value: 20°C for low temp
-```
 
 ### Creating a Dashboard: My Solar PV Battery
 
-#### Step 1: Prepare Your Feeds
-
-Ensure you have feeds being populated by DataBridge:
-
-```
-DataBridge → MQTT → EmonCMS Input Processing
-   ↓            ↓
-[Solar Power]  [MQTT/solar] → Log to feed: solar
-[House Use]    [MQTT/use]   → Log to feed: use
-[Battery +]    [MQTT/batt_charge] → Log to feed: battery_charge
-[Battery -]    [MQTT/batt_discharge] → Log to feed: battery_discharge
-```
-
-**Configure Input Processes in EmonCMS:**
-
-Navigate to **Inputs** → Select your MQTT input → **Edit Process Chain**
-
-Add processes for each feed:
-```
-1. Log to Feed → "solar" (W feed, kW type)
-2. Accumulate → "solar_kwh" (for daily totals)
-```
-
-#### Step 2: Add Widget to Dashboard
-
-1. Go to **Dashboard** → **Edit Dashboard**
-2. Click **Add Widget**
-3. Select "My Solar PV Battery"
+1. Ensure feeds are being populated by DataBridge
+2. **Dashboard** → **Edit Dashboard** → **Add Widget** → select "My Solar PV Battery"
+3. Configure feeds (Auto-Configure recommended, or manual override)
 4. Click **Save**
-
-#### Step 3: Configure Solar Plugin
-
-1. Click the configuration icon on the widget
-2. **Auto-Configure** (recommended):
-   - Click "Auto-Configure Feeds"
-   - Review suggestions
-   - Click "Accept"
-
-3. **Manual Configuration** (if auto-configure doesn't work):
-
-```
-Real-Time Feeds:
-  House Consumption: [Select: use]
-  Solar Generation: [Select: solar]
-  Battery Charging: [Select: battery_charge]
-  Battery Discharging: [Select: battery_discharge]
-
-Optional:
-  Battery Power: [Select: battery_power] (or leave blank)
-  Battery SOC: [Select: battery_soc] (or calculated from charger)
-
-Display Options:
-  ☑ Show in kilowatts (kW)
-  Battery Capacity: 11.8 kWh
-  Time window default: 6 hours
-  Refresh interval: 5 seconds
-```
-
-#### Step 4: Add Historical Views (Optional)
-
-For historical analysis, configure kWh feeds:
-
-```
-Input Process for Solar (Daily Totals):
-├─ From MQTT: solar (watts)
-├─ Accumulate: solar_kwh (kWh)
-└─ Log every 60 seconds
-```
-
-Repeat for:
-- use → use_kwh
-- battery_charge → battery_charge_kwh
-- battery_discharge → battery_discharge_kwh
-
----
-
-## Feed Mapping Guide
-
-### Simple Setup (Real-Time Only)
-
-**Minimum 4 feeds needed:**
-
-```
-EmonCMS Dashboard
-├─ My Solar PV Battery Widget
-│  ├─ Input 1: solar (kW) ← DataBridge publishes current solar power
-│  ├─ Input 2: use (kW) ← Current house consumption
-│  ├─ Input 3: battery_charge (kW) ← Power charging battery
-│  └─ Input 4: battery_discharge (kW) ← Power from battery
-│
-└─ My Fish Tank Widget
-   ├─ Input 1: currentTemp (°C)
-   ├─ Input 2: ph (pH)
-   ├─ Input 3: tds (PPM)
-   ├─ Input 4: highTemp (°C)
-   ├─ Input 5: lowTemp (°C)
-   ├─ Input 6: ec (US/cm)
-   ├─ Input 7: salinity (PPM)
-   └─ Input 8: sg (S.G.)
-```
-
-### Advanced Setup (Real-Time + Historical)
-
-**For complete energy analysis:**
-
-```
-Real-Time (Power in W):
-├─ solar (W)
-├─ use (W)
-├─ battery_charge (W)
-├─ battery_discharge (W)
-├─ battery_soc (%)
-└─ battery_power (W)
-
-Historical (Energy in kWh):
-├─ solar_kwh
-├─ use_kwh
-├─ solar_direct_kwh (solar used directly)
-├─ import_kwh (grid import)
-├─ battery_charge_kwh
-└─ battery_discharge_kwh
-```
-
----
 
 ## Troubleshooting
 
 ### Plugin Not Visible in Apps Menu
 
-**Problem**: Plugin folders copied but not appearing in EmonCMS
-
-**Solutions**:
-
-1. **Check file permissions:**
-   ```bash
-   sudo chown -R www-data:www-data /var/www/emoncms/Modules/app/myfishtank/
-   sudo chown -R www-data:www-data /var/www/emoncms/Modules/app/mysolarpvbattery/
-   ```
-
-2. **Clear cache:**
-   ```bash
-   sudo rm -rf /var/www/emoncms/Modules/cache/*
-   ```
-
-3. **Restart web server:**
-   ```bash
-   sudo systemctl restart apache2
-   ```
-
-4. **Check file structure:**
-   ```bash
-   ls /var/www/emoncms/Modules/app/myfishtank/
-   # Should contain: app.php, manifest.json, and other files
-   ```
+- Check permissions: `sudo chown -R www-data:www-data /var/www/emoncms/Modules/app/myfishtank/`
+- Clear cache: `sudo rm -rf /var/www/emoncms/Modules/cache/*`
+- Restart web server: `sudo systemctl restart apache2`
+- Verify file structure: `ls /var/www/emoncms/Modules/app/myfishtank/`
 
 ### "No Data Available" in Plugin
 
-**Problem**: Widget loads but shows no data
-
-**Solutions**:
-
-1. **Verify feeds are receiving data:**
-   - Go to EmonCMS **Feeds** page
-   - Check each configured feed has recent data (last update < 1 minute)
-   - If not: Check DataBridge is running and publishing
-
-2. **Check feed selection:**
-   - Click widget configuration icon
-   - Verify correct feeds are selected
-   - Try "Auto-Configure" if available
-
-3. **Verify feed format:**
-   - Feed should contain numeric values
-   - Check for NULL or non-numeric values in feed data
-
-4. **Debug:**
-   ```bash
-   # Check EmonCMS logs
-   tail -f /var/log/emoncms/emoncms.log
-   ```
+- Verify feeds are receiving data (Feeds page, last update < 1 minute)
+- Check widget feed selection / try "Auto-Configure"
+- Verify feed values are numeric, not NULL
 
 ### Graph Not Displaying
 
-**Problem**: Plugin loads but interactive graphs are blank
-
-**Solutions**:
-
-1. **Check JavaScript console:**
-   - Press F12 in browser
-   - Check **Console** tab for errors
-   - Look for "CORS", "404", or "undefined" errors
-
-2. **Verify EmonCMS Graph module is installed:**
-   - Go to EmonCMS **Setup** → **Modules**
-   - Ensure "Graph" module is listed and enabled
-   - If missing: Clone from https://github.com/emoncms/graph
-
-3. **Verify historical feeds:**
-   - Historical view requires kWh feeds
-   - Real-time view only needs W feeds
-   - Check feeds contain sufficient data points
-
-4. **Clear browser cache:**
-   ```bash
-   # Or in browser: Ctrl+Shift+Delete → Clear Cache
-   ```
-
-5. **Check EmonCMS Graph rendering:**
-   - Go to **Inputs** → Select any feed
-   - View → **Graph**
-   - If graph doesn't display: EmonCMS Graph module issue, not plugin
+- Check browser console (F12) for CORS/404/undefined errors
+- Verify EmonCMS Graph module is installed and enabled
+- Verify historical feeds exist for the History view
+- Clear browser cache
 
 ### Feeds Show Old Data
 
-**Problem**: Plugin displaying stale values despite recent DataBridge collection
-
-**Solutions**:
-
-1. **Check DataBridge MQTT publishing:**
-   ```bash
-   # Subscribe to MQTT topics (if using MQTT)
-   mosquitto_sub -h localhost -t "emon/#"
-   # Should see current values
-   ```
-
-2. **Verify EmonCMS receiving data:**
-   - EmonCMS Input page should show recent timestamps
-   - If not: DataBridge → MQTT → EmonCMS chain broken
-
-3. **Check MySQL data:**
-   ```bash
-   mysql> SELECT * FROM feeds WHERE name='solar' ORDER BY updated DESC LIMIT 1;
-   # Should show recent timestamp
-   ```
-
-4. **Force refresh:**
-   - Restart DataBridge
-   - In EmonCMS, click **Refresh** button
-   - Hard-refresh browser: Ctrl+F5
-
-### Widget Configuration Disappeared
-
-**Problem**: Widget settings are not saved after closing
-
-**Solutions**:
-
-1. **Check browser storage:**
-   - Clear browser cache: Ctrl+Shift+Delete
-   - Try different browser
-
-2. **Verify permissions:**
-   - Ensure logged in as user with write permissions
-
-3. **Check feed access:**
-   - Logged-in user must have access to selected feeds
-   - Go to Feeds → Check feed permissions
+- Check DataBridge MQTT publishing: `mosquitto_sub -h localhost -t "emon/#"`
+- Verify EmonCMS Input page shows recent timestamps
+- Check MySQL: `SELECT * FROM feeds WHERE name='solar' ORDER BY updated DESC LIMIT 1;`
+- Restart DataBridge, hard-refresh browser
 
 ### Performance Issues
 
-**Problem**: Dashboard loading slowly or widgets lagging
-
-**Solutions**:
-
-1. **Reduce refresh rate:**
-   - In widget config, increase refresh interval (default 5s → 10s/30s)
-   - Reduces server/network load
-
-2. **Limit chart history:**
-   - Change default chart window: 6h → 1h or 3h
-   - Less data = faster rendering
-
-3. **Optimize server:**
-   ```bash
-   # Check system resources
-   top
-   free -h
-   
-   # If high CPU: reduce DataBridge poll rates
-   # If high memory: check for feed storage issues
-   ```
-
----
+- Increase refresh interval (5s → 10s/30s)
+- Limit chart history window (6h → 1h/3h)
+- Check system resources: `free -h`
 
 ## Development & Customization
 
 ### Plugin Structure
-
-Each plugin follows EmonCMS conventions:
 
 ```
 myfishtank/
@@ -731,41 +423,15 @@ myfishtank/
 └── README.md           # Documentation
 ```
 
-The solar plugin specifically integrates with:
-- **EmonCMS Graph Module**: For rendering interactive power charts
-- **Graph APIs**: `graph_draw()`, `timerange_select()` for user interaction
-- **Feed data**: Pulls from configured power feeds to populate graphs
-
 ### Modifying Display Format
 
-Edit `Views/app.html` to change:
-- Number of displayed parameters
-- Table layout and styling
-- Refresh interval
-- Alert thresholds display
-
-Example modification:
-
-```html
-<!-- Default: Shows all 8 parameters -->
-<!-- To hide specific parameter: comment out row -->
-<!-- <tr><td>Salinity:</td><td id="salinity">-</td></tr> -->
-```
+Edit `Views/app.html` to change displayed parameters, layout, styling, refresh interval.
 
 ### Adding Custom Calculations
 
-Edit `Views/app.js` to add:
-- Custom value transformations
-- Alarm/alert logic
-- Historical trend analysis (using EmonCMS Graph module APIs)
-- Email/webhook notifications
-- Integration with EmonCMS Graph module for custom chart rendering
-
----
+Edit `Views/app.js` for custom value transformations, alert logic, and integration with the EmonCMS Graph module APIs.
 
 ## Integration with DataBridge
-
-### Recommended Data Flow
 
 ```
 1. DataBridge (Python)
@@ -826,7 +492,6 @@ topic_prefix = "emon/"
 - [ ] Export data to CSV/PDF
 - [ ] Mobile app companion
 - [ ] Multi-site dashboard aggregation
-- [ ] Machine learning anomaly detection
 - [ ] Integration with home automation (Home Assistant, OpenHAB)
 - [ ] Webhook notifications for events
 - [ ] Custom formula builder for derived metrics
@@ -840,9 +505,8 @@ topic_prefix = "emon/"
 
 ## Credits
 
-- **EmonCMS**: Excellent open-source energy monitoring platform
-- **Chart.js**: Beautiful JavaScript charting library
-- **Community**: EmonCMS community forums and contributors
+- **EmonCMS**: Open-source energy monitoring platform
+- **Chart.js**: JavaScript charting library
 
 ## License
 
@@ -850,17 +514,14 @@ These plugins are provided as-is for use with EmonCMS. See individual plugin dir
 
 ## Support & Community
 
-- **EmonCMS Forums**: https://community.openenergymonitor.org/
+- **EmonCMS Forums**: <https://community.openenergymonitor.org/>
 - **GitHub Issues**: Report bugs on this repository
-- **Documentation**: See README.md in each plugin folder
 
 ## Author & Contact
 
-**Adilson Dias**  
-Integration Architect | Polyglot Developer  
-Tiny Memories Laser (TML)  
-[GitHub](https://github.com/adilsondias-engineer) | [LinkedIn](https://linkedin.com/in/adilsondias)
+**Adilson Dias**
+[GitHub](https://github.com/adilsondias-engineer)
 
 ---
 
-*EmonCMS Custom Plugins: Bringing real-time energy and environmental monitoring to your fingertips.*
+*EmonCMS Custom Plugins: real-time energy and environmental monitoring dashboards.*
